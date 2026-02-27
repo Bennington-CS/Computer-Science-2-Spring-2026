@@ -143,6 +143,15 @@ Average: Sum + Number-of-elements
 
 Wish:
 (define (sum/lot alot) ...)
+
+Template:
+(define (sum/alot alot)
+  (cond
+    [(empty? alot) ...]
+    [else
+      (... (first alot) ... (sum/alot (rest alot)) ...)]))
+
+
 (define (how-many/lot alot) ...)
 
 Main:
@@ -151,10 +160,133 @@ Main:
      (how-many/lot alot)))
 |#
 
-#;
-(define (sum/lot alot)
-  )
+(define (sum/alot alot)
+  (cond
+    [(empty? alot) 0]
+    [else
+      (+ (first alot) (sum/alot (rest alot)))]))
 
+(sum/alot '(10 20 30))
+
+(define (how-many/alot alot)
+  (cond
+    [(empty? alot) 0]
+    [else
+      (add1 (how-many/alot (rest alot)))]))
+
+(how-many/alot '(10 20 30))
+
+(define (average/alot alot)
+  (/ (sum/alot alot)
+     (how-many/alot alot)))
+
+(average/alot '(10 20 30))
+(average/alot '())
+
+(rest (cons 1 '()))
+
+(define (how-many-fixed ne-l)
+  (cond
+    [(empty? (rest ne-l)) 1]
+    [else
+      (add1 (how-many-fixed (rest ne-l)))]))
+
+(how-many-fixed '(1 2 3))
+(how-many-fixed '())
+
+``` racket
+; An N is one of:
+; – 0
+; – (add1 N)
+```
+
+;; Tests:
+(check-expect (copier 0 "hello") '())
+(check-expect (copier 2 "hello")
+              (cons "hello" (cons "hello" '())))
+
+;; Template:
 #;
-(define (how-many/lot alot)
-  )
+(define (copier n s)
+  (cond
+    [(zero? n) ...]
+    [(positive? n)
+     (... (copier (sub1 n) s) ...)]))
+
+(cons "hello" (cons "hello" '())) ; '("hello" "hello")
+(first (cons "hello" (cons "hello" '()))) ; "hello"
+(rest (cons "hello" (cons "hello" '()))) ; '("hello")
+
+(cons "hello" '())
+(cons "hello" (cons "hello" '())) ; '("hello" "hello")
+
+(define (copier n s)
+  (cond
+    [(zero? n) '()]
+    [(positive? n)
+     (cons s (copier (sub1 n) s))]))
+
+(copier 3 "hello") ; '("hello" "hello" "hello")
+
+(define (copier-v2 n s)
+  (cond
+    [(zero? n) '()]
+    [else
+     (cons s (copier-v2 (sub1 n) s))]))
+
+(copier-v2 3 "hello")
+
+;; Compute (+ n pi) without using +
+;; n : Natural Number
+;; add-to-pi Number -> Number
+
+; Template
+#;
+(define (add-to-pi n)
+  (cond
+    [(zero? n) ...]
+    [(positive? n)
+     (... (add-to-pi (sub1 n)) ...)]))
+
+(define (add-to-pi n)
+  (cond
+    [(zero? n) pi]
+    [else
+      (add1 (add-to-pi (sub1 n)))]))
+
+(add-to-pi 3)
+(check-expect (add-to-pi 3) (+ 3 pi))
+
+(define (add n x)
+  (cond
+    [(zero? n) x]
+    [else
+       (add1 (add (sub1 n) x))]))
+
+(add 3 5)
+
+;; Design a function that multiplies x and y, without using *
+;; mult : Number -> Number
+;;
+;; (define (mult x y)
+;;   0)
+;;
+;; Template:
+#;
+(define (mult x y)
+  (cond
+    [(zero? y) ...]
+    [else
+     (... (mult (sub1 y)) ...)]))
+
+(define (mult x y)
+  (cond
+    [(zero? y) 0]
+    [else
+     (add x (mult (sub1 y) x))]))
+
+(define (add n x)
+  (cond
+    [(zero? n) x]
+    [else
+       (add1 (add (sub1 n) x))]))
