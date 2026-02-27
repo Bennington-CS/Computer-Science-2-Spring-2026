@@ -109,9 +109,7 @@ Otherwise, #f
 
 Base case: '()
 Recursive case: (or ...)
-|#
 
-#|
 - Rewrite this defintion so that it works with any string.
 - Construct a definition such that it *counts* the number of elements.
 |#
