@@ -2,7 +2,7 @@
 
 ## CS2, Designing Worlds, Spring 2026
 
-Here are all the data definitions from Sections 8--11, each paired with
+Here are all the data definitions from Sections 8—11, each paired with
 its characteristic function template.  The arrow (-->) in each data
 definition marks the self-reference; the recursive call in the template
 goes in the same spot.
@@ -311,7 +311,7 @@ its own recursive structure.
 
 No new data definitions here.  Section 11 introduces BSL+'s `list`
 shorthand and guidelines for composing functions.  The data definitions
-and templates from Sections 8--10 still apply; what changes is how you
+and templates from Sections 8—11 still apply; what changes is how you
 organize multiple functions around them.
 
 Two guidelines:
@@ -326,7 +326,7 @@ header of the helper you need, use it, and come back to design it later.
 
 ## The pattern
 
-Every self-referential data definition in Sections 8--11 has this shape:
+Every self-referential data definition in Sections 8—11 has this shape:
 
 ```
 ; A Thing is one of:
