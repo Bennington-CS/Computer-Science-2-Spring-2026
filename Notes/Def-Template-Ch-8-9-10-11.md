@@ -1,4 +1,4 @@
-# Data Definitions and Templates: Sections 8--11
+# Data Definitions and Templates: Sections 8—11
 
 ## CS2, Designing Worlds, Spring 2026
 

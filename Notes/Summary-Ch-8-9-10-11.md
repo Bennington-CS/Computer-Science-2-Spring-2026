@@ -1,4 +1,4 @@
-# Arbitrarily Large Data: A Summary of Sections 8--11
+# Arbitrarily Large Data: A Summary of Sections 8—11
 
 ## CS2, Spring 2026
 
