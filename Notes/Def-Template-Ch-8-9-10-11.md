@@ -48,9 +48,6 @@ No self-reference, no recursion.
 ; interpretation a point in 3-dimensional space
 ```
 
-No template shown.  This is just a compound value with a known shape,
-like a struct with three fields.
-
 
 ## Section 9: Designing with Self-Referential Data Definitions
 
