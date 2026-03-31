@@ -212,15 +212,7 @@ Template:
 ```
 
 When the function produces a list, the base case is typically `'()` and
-the recursive case typically uses `cons`:
-
-```racket
-(define (wage* whrs)
-  (cond
-    [(empty? whrs) '()]
-    [else (cons (wage (first whrs))
-                (wage* (rest whrs)))]))
-```
+the recursive case typically uses `cons`.
 
 
 ### Work / Low (structures in lists)
