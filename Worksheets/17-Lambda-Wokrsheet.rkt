@@ -92,6 +92,8 @@ Do not change the check-expects.
 (check-expect (map 0 '(1 2 3 4 5))
               '(2 4 6 8 10))
 
+(check-expect (map (lambda (n) (* 2 n)) '(1 2 3 4)) '(2 4 6 8 10))
+
 ;;; Q12.
 ;;; Original:
 ;;;   (define (negative? n) (< n 0))
@@ -100,6 +102,8 @@ Do not change the check-expects.
 ;;; Your answer:
 (check-expect (filter 0 '(3 -1 0 -4 2))
               '(-1 -4))
+
+(check-expect (filter (lambda (n) (< n 0)) '(3 -1 0 -4 2)))
 
 ;;; Q13.
 ;;; Original:
